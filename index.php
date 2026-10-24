@@ -3,6 +3,10 @@
 $input = file_get_contents('php://input');
 $update = json_decode($input, true);
 
+if($_SERVER['REQUEST_METHOD'] === 'GET'){
+    exit("Bot is running");
+}
+
 if (!is_array($update)) {
     http_response_code(400);
     exit('Invalid JSON');
