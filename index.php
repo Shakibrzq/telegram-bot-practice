@@ -7,14 +7,11 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     exit("Bot is running");
 }
 
-if (!empty($update)) {
-    file_put_contents(
-        __DIR__ . '/update.txt',
-        json_encode($update, JSON_PRETTY_PRINT) . PHP_EOL,
-        FILE_APPEND
-    );
-}
+// putting updates inside render logs
 
+if (!empty($update)) {
+    error_log(json_encode($update, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+}
 
 if (!is_array($update)) {
     http_response_code(400);
