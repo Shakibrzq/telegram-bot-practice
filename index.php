@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 if(!empty($update)){
     file_put_contents("update.txt", $update);
 }else{
-    
+
 }
 
 
