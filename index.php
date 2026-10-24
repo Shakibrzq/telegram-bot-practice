@@ -8,7 +8,11 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 }
 
 if (!empty($update)) {
-    file_put_contents("update.txt", json_encode($update, JSON_PRETTY_PRINT));
+    file_put_contents(
+        __DIR__ . '/update.txt',
+        json_encode($update, JSON_PRETTY_PRINT) . PHP_EOL,
+        FILE_APPEND
+    );
 }
 
 
