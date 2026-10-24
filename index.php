@@ -7,8 +7,8 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     exit("Bot is running");
 }
 
-if(!empty($update)){
-    file_put_contents("update.txt", $update);
+if (!empty($update)) {
+    file_put_contents("update.txt", json_encode($update, JSON_PRETTY_PRINT));
 }
 
 
