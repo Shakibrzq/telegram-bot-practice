@@ -11,6 +11,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
 if (!empty($update)) {
     error_log(json_encode($update, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    echo $update['message']['message_id'];
 }
 
 if (!is_array($update)) {
