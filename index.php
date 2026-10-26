@@ -24,7 +24,7 @@ if (!is_array($update)) {
 
 if (isset($update['message'])) {
 
-    $message = $update['message'];
+    $message = $update['message']['text'];
 
     $from_user_name = $update['from']['username'];
 
