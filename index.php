@@ -1,5 +1,15 @@
 <?php
 
+//BOT METHODS:
+
+//getMe
+//getUpdates
+//setWebhook
+//sendMessage ->
+// to use this method we need a chatid parameter and text
+// chatid -> either the chat id or username of the target which is normally 
+// for channels
+
 $input = file_get_contents('php://input');
 $update = json_decode($input, true);
 
@@ -25,37 +35,62 @@ if (!is_array($update)) {
 if (isset($update['message'])) {
 
     $message = $update['message']['text'];
-
+    //another form of writing
+    //$message = $update->message->text
     $from_user_name = $update['massage']['from']['username'];
+    //$form_user_name = $update->message->form->username
+
+    $chat_id = $update['message']['chat']['id'];
 
     error_log($message.'is from:'.$from_user_name);
 
-    $chatId = $message['chat']['id'] ?? null;
-    $text = $message['text'] ?? '';
+    // $chatId = $message['chat']['id'] ?? null;
+    // $text = $message['text'] ?? '';
 
-    if ($chatId !== null && $text === '/start') {
-        $token = getenv('BOT_TOKEN');
+    // if ($chatId !== null && $text === '/start') {
+    //     $token = getenv('BOT_TOKEN');
 
-        $url = "https://api.telegram.org/bot{$token}/sendMessage";
+    //     $url = "https://api.telegram.org/bot{$token}/sendMessage";
 
-        $postData = [
-            'chat_id' => $chatId,
-            'text' => 'سلام! ربات من با موفقیت اجرا شده است.'
-        ];
+    //     $postData = [
+    //         'chat_id' => $chatId,
+    //         'text' => 'سلام! ربات من با موفقیت اجرا شده است.'
+    //     ];
 
-        $options = [
-            'http' => [
-                'method' => 'POST',
-                'header' => "Content-Type: application/json\r\n",
-                'content' => json_encode($postData),
-                'timeout' => 15
-            ]
-        ];
+    //     $options = [
+    //         'http' => [
+    //             'method' => 'POST',
+    //             'header' => "Content-Type: application/json\r\n",
+    //             'content' => json_encode($postData),
+    //             'timeout' => 15
+    //         ]
+    //     ];
 
-        $context = stream_context_create($options);
-        $response = file_get_contents($url, false, $context);
+    //     $context = stream_context_create($options);
+    //     $response = file_get_contents($url, false, $context);
+    // }
+    //api.telegram.org/bot<token>/<methodname>
+    // با استفاده از curl 
+    //میتونیم درخواست ثبت کنیم که به صورت پست به تلگر ام ارسال کنه
+
+    define("API_KEY",'8870211868:AAHWvrKYE_1IaqqC-bMt0GvP1dik-UOiQ7U');
+
+    // this function is for managing bot methods
+    // data = method parameters
+    function bot($method, $data=[]){
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https:://api.telegram.org/bot'.API_KEY.'/'.$method);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        return curl_exec($ch);
     }
+
 }
 
-http_response_code(200);
-echo 'OK';
+bot('sendMessgae', [
+    'chat_id' =>672397132,
+    'text'=>"Hi Shakiba"
+]);
+
+// http_response_code(200);
+// echo 'OK';
