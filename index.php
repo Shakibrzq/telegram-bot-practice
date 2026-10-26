@@ -119,17 +119,14 @@ if($message == '/start' && $type == 'private'){
 }elseif($message == '/info'){
     bot('sendMessage', [
         'chat_id' => $chat_id,
-        'text' => "from id:$from_id\n
-        is_bot:$is_bot\nfirstname:$chat_name\n
-        username:$chat_username",
+        'text' => "from id:$from_id\nis_bot:$is_bot\nfirstname:$chat_name\nlanguage_code:$lang_code",
+
         'reply_to_message_id' => $message_id
     ]);
 }elseif($message == '/info_chat'){
     bot('sendMessage', [
         'chat_id' => $chat_id,
-        'text' => "chat id:$chat_id\n
-        is_bot:$is_bot\nfirstname:$first_name\n
-        language_code:$lang_code",
+        'text' => "chat id:$chat_id\nis_bot:$is_bot\nfirstname:$first_name\nusername:$chat_username",
         'reply_to_message_id' => $message_id
     ]);
 }
