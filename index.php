@@ -126,7 +126,7 @@ if($message == '/start' && $type == 'private'){
 }elseif($message == '/info_chat'){
     bot('sendMessage', [
         'chat_id' => $chat_id,
-        'text' => "chat id:$chat_id\nis_bot:$is_bot\nfirstname:$first_name\nusername:$chat_username",
+        'text' => "chat id:$chat_id\nis_bot:$is_bot\nchatname:$chat_name\nusername:$chat_username",
         'reply_to_message_id' => $message_id
     ]);
 }
