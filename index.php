@@ -88,10 +88,11 @@ if (isset($update['message'])) {
         return curl_exec($ch);
     }
 
-bot('sendMessage', [
+$responce = bot('sendMessage', [
     'chat_id' =>672397132,
     'text'=>"Hi Shakiba"
 ]);
 
+error_log('log responce', $responce);
 // http_response_code(200);
 // echo 'OK';
