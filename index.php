@@ -71,6 +71,7 @@ error_log(json_encode($update,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ));
 
 if(isset($update['message'])){
     $message = [$update]['message']['text'];
+    $chat_id = $update['message']['chat']['id'];
 }
 
 
@@ -89,7 +90,7 @@ function bot($method, $data = []){
 
 if($message == '/start'){
     bot('sendMessage', [
-    'chat_id' => 672397132,
+    'chat_id' => $chat_id,
     'text' => '<b>Hi welcome to the bot</b>',
     'parse_mode' => 'HTML'
 
