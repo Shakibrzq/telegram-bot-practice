@@ -70,7 +70,7 @@ error_log(json_encode($update,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ));
 //so we use indexing syntax not the object syntax $update->message->...
 
 if(isset($update['message'])){
-    $message = [$update]['message']['text'];
+    $message = $update['message']['text'];
     $chat_id = $update['message']['chat']['id'];
 }
 
