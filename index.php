@@ -26,7 +26,7 @@ if (isset($update['message'])) {
 
     $message = $update['message']['text'];
 
-    $from_user_name = $update['from']['username'];
+    $from_user_name = $update['massage']['from']['username'];
 
     error_log($message.'is from:'.$from_user_name);
 
