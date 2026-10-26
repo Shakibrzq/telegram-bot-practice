@@ -87,7 +87,7 @@ if (isset($update['message'])) {
 
 }
 
-bot('sendMessgae', [
+bot('sendMessage', [
     'chat_id' =>672397132,
     'text'=>"Hi Shakiba"
 ]);
