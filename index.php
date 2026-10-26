@@ -6,8 +6,9 @@
 //getUpdates
 //setWebhook
 //sendMessage ->
-// to use this method we need a chatid parameter and text
-// chatid -> either the chat id or username of the target which is normally 
+// to use this method we need a chatid parameter and text and parse_mode
+//parse_mode ia sending mode wchich is for text :bold-italic-spoiler,..
+// chatid -> either the chat id(int) or username(str) of the target which is normally 
 // for channels
 
 $input = file_get_contents('php://input');
@@ -66,7 +67,8 @@ if (isset($update['message'])) {
 
 $responce = bot('sendMessage', [
     'chat_id' =>672397132,
-    'text'=>"Hi Shakiba"
+    'text'=>"Hi Shakiba",
+    'parse_mode'=>'bold'
 ]);
 
 error_log('log responce:'. $responce);
