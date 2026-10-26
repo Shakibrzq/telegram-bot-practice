@@ -93,6 +93,6 @@ $responce = bot('sendMessage', [
     'text'=>"Hi Shakiba"
 ]);
 
-error_log('log responce', $responce);
+error_log('log responce:'. $responce);
 // http_response_code(200);
 // echo 'OK';
