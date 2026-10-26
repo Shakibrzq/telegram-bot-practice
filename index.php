@@ -85,9 +85,11 @@ function bot($method, $data = []){
 
 }
 
-bot('sendMessage', [
+if($message == '/start'){
+    bot('sendMessage', [
     'chat_id' => 672397132,
     'text' => '<b>Hi welcome to the bot</b>',
     'parse_mode' => 'HTML'
 
 ]);
+}
