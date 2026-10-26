@@ -5,13 +5,14 @@ $update = json_decode($input, true);
 
 if($_SERVER['REQUEST_METHOD'] === 'GET'){
     exit("Bot is running");
+   
 }
 
 // putting updates inside render logs
 
 if (!empty($update)) {
     error_log(json_encode($update, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    echo $update['message']['message_id'];
+    
 }
 
 if (!is_array($update)) {
@@ -23,6 +24,7 @@ if (!is_array($update)) {
 
 if (isset($update['message'])) {
     $message = $update['message'];
+    error_log($update['message']['message_id']);
 
     $chatId = $message['chat']['id'] ?? null;
     $text = $message['text'] ?? '';
