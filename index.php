@@ -73,6 +73,7 @@ if(isset($update['message'])){
     $message = $update['message']['text'];
     $chat_id = $update['message']['chat']['id'];
     $message_id = $update['message']['message_id'];
+    $type = $update['message']['chat']['type'];
 }
 
 
@@ -89,7 +90,7 @@ function bot($method, $data = []){
 
 }
 
-if($message == '/start'){
+if($message == '/start' && $type == 'private'){
     bot('sendMessage', [
     'chat_id' => $chat_id,
     'text' => '<b>Hi welcome to the bot</b>',
@@ -97,4 +98,10 @@ if($message == '/start'){
     'reply_to_message_id'=>$message_id
 
 ]);
+
+// if($message == '/info'){
+//     bot('sendMessage', [
+        
+//     ]);
+// }
 }
