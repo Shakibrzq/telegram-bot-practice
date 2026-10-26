@@ -72,6 +72,7 @@ error_log(json_encode($update,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ));
 if(isset($update['message'])){
     $message = $update['message']['text'];
     $chat_id = $update['message']['chat']['id'];
+    $message_id = $update['message']['message_id'];
 }
 
 
@@ -92,7 +93,8 @@ if($message == '/start'){
     bot('sendMessage', [
     'chat_id' => $chat_id,
     'text' => '<b>Hi welcome to the bot</b>',
-    'parse_mode' => 'HTML'
+    'parse_mode' => 'HTML',
+    'reply_to_message_id'=>''
 
 ]);
 }
