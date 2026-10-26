@@ -37,7 +37,7 @@ if (isset($update['message'])) {
     $message = $update['message']['text'];
     //another form of writing
     //$message = $update->message->text
-    $from_user_name = $update['massage']['from']['username'];
+    $from_user_name = $update['message']['from']['username'];
     //$form_user_name = $update->message->form->username
 
     $chat_id = $update['message']['chat']['id'];
@@ -73,19 +73,20 @@ if (isset($update['message'])) {
     // با استفاده از curl 
     //میتونیم درخواست ثبت کنیم که به صورت پست به تلگر ام ارسال کنه
 
-    define("API_KEY",'8870211868:AAHWvrKYE_1IaqqC-bMt0GvP1dik-UOiQ7U');
+    define("API_KEY",getenv('BOT_TOKEN'));
 
     // this function is for managing bot methods
     // data = method parameters
-    function bot($method, $data=[]){
+   
+
+}
+ function bot($method, $data=[]){
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https:://api.telegram.org/bot'.API_KEY.'/'.$method);
+        curl_setopt($ch, CURLOPT_URL, 'https://api.telegram.org/bot'.API_KEY.'/'.$method);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         return curl_exec($ch);
     }
-
-}
 
 bot('sendMessage', [
     'chat_id' =>672397132,
