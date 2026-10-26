@@ -23,8 +23,12 @@ if (!is_array($update)) {
 
 
 if (isset($update['message'])) {
+
     $message = $update['message'];
-    error_log($update['message']['message_id']);
+
+    $from_user_name = $update['from']['username'];
+
+    error_log($message.'is from:'.$from_user_name);
 
     $chatId = $message['chat']['id'] ?? null;
     $text = $message['text'] ?? '';
