@@ -70,10 +70,21 @@ error_log(json_encode($update,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ));
 //so we use indexing syntax not the object syntax $update->message->...
 
 if(isset($update['message'])){
+    //base
     $message = $update['message']['text'];
-    $chat_id = $update['message']['chat']['id'];
     $message_id = $update['message']['message_id'];
+
+    //from
+    $from_id = $update['message']['from']['id'];
+    $is_bot = $update['message']['from']['is_bot'];
+    $first_name = $update['message']['from']['first_name'];
+    $lang_code= $update['message']['from']['language_code'];
+
+    //chat
+    $chat_name = $update['message']['chat']['first_name'];
+    $chat_username = $update['message']['chat']['username'];
     $type = $update['message']['chat']['type'];
+    $chat_id = $update['message']['chat']['id'];
 }
 
 
@@ -98,17 +109,22 @@ if($message == '/start' && $type == 'private'){
     'reply_to_message_id'=>$message_id
 
 ]);
-}
-
-if ($message == '/help') {
+}elseif($message == '/help'){
     bot('sendMessage', [
         'chat_id' => $chat_id,
-        'text' => "This is my bot guide\n
-            <code>/start</code>
-            <code>/info</code>
-            <code>/info_chat</code>",
+        'text' => "This is my bot guide\n<code>/info</code>\n<code>/info_chat</code>",
             'parse_mode' => 'HTML',
             'reply_to_message_id' => $message_id
     ]);
+}elseif($message == '/info'){
+    bot('sendMessage', [
+        'chat_id' => $chat_id,
+        'text' => "from id:$from_id\n
+        is_bot:$is_bot\nfirstname:$first_name\n
+        language_code:$lang_code",
+        'reply_to_message_id' => $message_id
+    ]);
 }
+
+
 
