@@ -99,15 +99,15 @@ if($message == '/start' && $type == 'private'){
 
 ]);
 
-if($message == '/help'){
+if ($message == '/help') {
     bot('sendMessage', [
         'chat_id' => $chat_id,
-        'text' => 'This is my bot guide\n
-        <code>/start<code>\n
-        <code>/info</code>\n
-        <code>/info_chat</code>',
+        'text' => "This is my bot guide\n
+            <code>/start</code>
+            <code>/info</code>
+            <code>/info_chat</code>",
         'parse_mode' => 'HTML',
-        'reply_to_message_id'=>$message_id
+        'reply_to_message_id' => $message_id
     ]);
 }
 }
