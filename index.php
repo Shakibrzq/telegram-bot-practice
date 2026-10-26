@@ -61,14 +61,16 @@
 
 
 $input = file_get_contents('php://input');
-$update = json_decode($input, true);
+// if you want to use syntax error delete true parameter
+$update = json_decode($input, true); //array
+
 error_log(json_encode($update,JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ));
 
+//upadte is in array syntax
+//so we use indexing syntax not the object syntax $update->message->...
 
-if(isset($update->message)){
-
-    $message = $update->message->text;
-
+if(isset($update['message'])){
+    $message = [$update]['message']['text'];
 }
 
 
