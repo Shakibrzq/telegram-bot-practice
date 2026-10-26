@@ -94,7 +94,7 @@ if($message == '/start'){
     'chat_id' => $chat_id,
     'text' => '<b>Hi welcome to the bot</b>',
     'parse_mode' => 'HTML',
-    'reply_to_message_id'=>''
+    'reply_to_message_id'=>$message_id
 
 ]);
 }
