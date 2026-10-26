@@ -66,9 +66,9 @@ if (isset($update['message'])) {
     }
 
 $responce = bot('sendMessage', [
-    'chat_id' =>672397132,
-    'text'=>"*bold \*Hi Shakiba*",
-    'parse_mode'=>'MarkdownV2'
+    'chat_id' => 672397132,
+    'text' => '*Hi Shakiba*',
+    'parse_mode' => 'MarkdownV2'
 ]);
 
 error_log('log responce:'. $responce);
