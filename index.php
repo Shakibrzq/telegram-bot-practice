@@ -98,6 +98,7 @@ if($message == '/start' && $type == 'private'){
     'reply_to_message_id'=>$message_id
 
 ]);
+}
 
 if ($message == '/help') {
     bot('sendMessage', [
@@ -106,8 +107,8 @@ if ($message == '/help') {
             <code>/start</code>
             <code>/info</code>
             <code>/info_chat</code>",
-        'parse_mode' => 'HTML',
-        'reply_to_message_id' => $message_id
+            'parse_mode' => 'HTML',
+            'reply_to_message_id' => $message_id
     ]);
 }
-}
+
