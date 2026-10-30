@@ -13,11 +13,8 @@
 // chatid -> either the chat id(int) or username(str) of the target which is normally 
 // for channels
 
-// $input = file_get_contents('php://input');
-// $update = json_decode($input, true);
 
 // // putting updates inside render logs
-
 // if (!empty($update)) {
 //     error_log(json_encode($update, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     
@@ -106,7 +103,15 @@ if($message == '/start' && $type == 'private'){
     'chat_id' => $chat_id,
     'text' => '<b>Hi welcome to the bot</b>',
     'parse_mode' => 'HTML',
-    'reply_to_message_id'=>$message_id
+    //reply_parameters
+    'reply_to_message_id'=>$message_id,
+    //getting keyboards for our bot using replymarkup parameter 
+    'reply_markup'=>json_encode([
+        //Array of Array of
+         'keyboard'=>[
+            ['text'=>'first button']
+         ]
+    ])
 
 ]);
 }elseif($message == '/help'){
@@ -130,6 +135,8 @@ if($message == '/start' && $type == 'private'){
         'reply_to_message_id' => $message_id
     ]);
 }
+
+
 
 
 
