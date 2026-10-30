@@ -113,7 +113,8 @@ if($message == '/start' && $type == 'private'){
          ],
          'resize_keyboard'=>true,
          //کیبورد بعد استفاده بسته میشه
-         'one_time_keyboard'=>true
+        //  'one_time_keyboard'=>true
+        'input_field_placeholder'=>'Select one of the buttons'
 
     ])
 
