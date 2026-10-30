@@ -111,7 +111,9 @@ if($message == '/start' && $type == 'private'){
          'keyboard'=>[
             [['text'=>'first button'],['text'=>'second button']]
          ],
-         'resize_keyboard'=>true
+         'resize_keyboard'=>true,
+         //کیبورد بعد استفاده بسته میشه
+         'one_time_keyboard'=>true
 
     ])
 
