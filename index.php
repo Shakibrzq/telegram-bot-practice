@@ -109,8 +109,10 @@ if($message == '/start' && $type == 'private'){
     'reply_markup'=>json_encode([
         //Array of Array of
          'keyboard'=>[
-            [['text'=>'first button']]
-         ]
+            [['text'=>'first button'],['text'=>'second button']]
+         ],
+         'resize_keyboard'=>true
+
     ])
 
 ]);
