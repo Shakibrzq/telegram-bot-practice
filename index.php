@@ -139,6 +139,11 @@ if($message == '/start' && $type == 'private'){
         'text' => "chat id:$chat_id\nis_bot:$is_bot\nchatname:$chat_name\nusername:$chat_username\ntype:$type",
         'reply_to_message_id' => $message_id
     ]);
+}elseif($message == 'first button'){
+    bot('sendMessage', [
+        'chat_id'=>$chat_id,
+        'text'=>'Greetings'
+    ]);
 }
 
 
