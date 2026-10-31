@@ -211,7 +211,7 @@ if($message == '/start' && $type == 'private'){
                 'callback_data'=>'1234']]
             ]
         ])
-    ])
+    ]);
 }
 
 
