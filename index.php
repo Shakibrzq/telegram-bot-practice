@@ -121,7 +121,7 @@ if($message == '/start' && $type == 'private'){
     'reply_markup'=>json_encode([
         //Array of Array of
          'keyboard'=>[
-            [['text'=>'Location button','request_location'=>true],['text'=>'getmobile button','request_contact'=>true], ['text'=>'third button']]
+            [['text'=>'Location button','request_location'=>true],['text'=>'getmobile button','request_contact'=>true], ['text'=>'Delete button']]
          ],
          'resize_keyboard'=>true,
          //کیبورد بعد استفاده بسته میشه
@@ -157,6 +157,15 @@ if($message == '/start' && $type == 'private'){
     bot('sendMessage', [
         'chat_id'=>$chat_id,
         'text'=>"you've pressed the first button"
+    ]);
+}elseif($message == "Delete button" && $type == "private"){
+    bot('sendMessage', [
+        'chat_id'=> $chat_id,
+        'reply_to_message_id'=> $message_id,
+        'text'=>'All buttons deleted successfully',
+        'reply_markup'=>json_encode([
+            'remove_keyboard'=>true
+        ])
     ]);
 }
 
