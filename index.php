@@ -89,15 +89,24 @@ if(isset($update['message'])){
 
 
 define("API_KEY",getenv('BOT_TOKEN'));
-function bot($method, $data = []){
+function bot($method, $data = []) {
 
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,'https://api.telegram.org/bot'.API_KEY.'/'.$method);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+
+    curl_setopt($ch, CURLOPT_URL, 'https://api.telegram.org/bot'.API_KEY.'/'.$method);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
-    return curl_exec($ch);
+    $response = curl_exec($ch);
 
+    if ($response === false) {
+        error_log('cURL Error: ' . curl_error($ch));
+    } else {
+        error_log('Telegram Response: ' . $response);
+    }
+
+
+    return $response;
 }
 if(isset($update['message']['location'])){
     $latitude = $update['message']['location']['latitude'];
