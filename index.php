@@ -109,14 +109,14 @@ if($message == '/start' && $type == 'private'){
     'reply_markup'=>json_encode([
         //Array of Array of
          'keyboard'=>[
-            [['text'=>'first button'],['text'=>'second button'], ['text'=>'third button']]
+            [['text'=>'first button','request_contact'=>true],['text'=>'second button','request_location'=>true], ['text'=>'third button']]
          ],
          'resize_keyboard'=>true,
          //کیبورد بعد استفاده بسته میشه
         //  'one_time_keyboard'=>true
-        'input_field_placeholder'=>'Select one of the buttons',
-        'request_contact'=>true,
-        'request_location'=>true
+        'input_field_placeholder'=>'Select one of the buttons'
+        
+        
 
     ])
 
