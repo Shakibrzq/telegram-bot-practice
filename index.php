@@ -114,7 +114,9 @@ if($message == '/start' && $type == 'private'){
          'resize_keyboard'=>true,
          //کیبورد بعد استفاده بسته میشه
         //  'one_time_keyboard'=>true
-        'input_field_placeholder'=>'Select one of the buttons'
+        'input_field_placeholder'=>'Select one of the buttons',
+        'request_contact'=>true,
+        'request_location'=>true
 
     ])
 
@@ -142,7 +144,7 @@ if($message == '/start' && $type == 'private'){
 }elseif($message == 'first button' and $type == 'private'){
     bot('sendMessage', [
         'chat_id'=>$chat_id,
-        'text'=>'Greetings'
+        'text'=>"you've pressed the first button"
     ]);
 }
 
