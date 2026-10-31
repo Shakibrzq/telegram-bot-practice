@@ -121,9 +121,9 @@ if(isset($update['message']['location'])){
     ]);
 }
 
-if(isset($update['message'][''])){
-    //
-}
+// if(isset($update['message'][''])){
+//     //
+// }
 if($message == '/start' && $type == 'private'){
     bot('sendMessage', [
     'chat_id' => $chat_id,
