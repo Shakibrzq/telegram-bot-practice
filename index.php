@@ -82,6 +82,8 @@ if(isset($update['message'])){
     $chat_username = $update['message']['chat']['username'];
     $type = $update['message']['chat']['type'];
     $chat_id = $update['message']['chat']['id'];
+    //location
+
 }
 
 
@@ -97,7 +99,17 @@ function bot($method, $data = []){
     return curl_exec($ch);
 
 }
+if(isset($update['message']['location'])){
+    $latitude = $update['message']['location']['latitude'];
+    $longitude = $update['message']['location']['longitude'];
 
+    bot('sendMessage', [
+        'chat_id'=>$chat_id,
+        'reply_to_message_id'=>$message_id,
+        'text'=>"<u>latitude:$latitude'\n'Longitude:$longitude</u>",
+        'parse_mode'=>'HTML'
+    ]);
+}
 if($message == '/start' && $type == 'private'){
     bot('sendMessage', [
     'chat_id' => $chat_id,
