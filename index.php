@@ -176,6 +176,7 @@ if($message == '/start' && $type == 'private'){
         'text'=>'Displaying glass buttons',
         'reply_markup'=>json_encode([
             'inline_keyboard'=>[
+                //when user press the button the url will be open
                 [['text'=>'Hello world', 'url'=>'https:/youtube.com']]
             ]
         ])
