@@ -90,15 +90,16 @@ if(isset($update['message'])){
 
 define("API_KEY",getenv('BOT_TOKEN'));
 function bot($method, $data = []) {
-
+    
     $ch = curl_init();
 
     curl_setopt($ch, CURLOPT_URL, 'https://api.telegram.org/bot'.API_KEY.'/'.$method);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
+    // اجرای درخواست
     $response = curl_exec($ch);
-
+    // ذخیره خطای احتمالی در لاگ
     if ($response === false) {
         error_log('cURL Error: ' . curl_error($ch));
     } else {
@@ -119,6 +120,10 @@ if(isset($update['message']['location'])){
         'parse_mode'=>'HTML'
     ]);
 }
+
+if(isset($update['message'][''])){
+    //
+}
 if($message == '/start' && $type == 'private'){
     bot('sendMessage', [
     'chat_id' => $chat_id,
@@ -131,7 +136,7 @@ if($message == '/start' && $type == 'private'){
         //Array of Array of
          'keyboard'=>[
             [['text'=>'Location button','request_location'=>true],['text'=>'getmobile button','request_contact'=>true], ['text'=>'Delete button']
-            ,['text'=>'glass button']]
+            ,['text'=>'glass button'], ['text'=>'glass button2']]
          ],
          'resize_keyboard'=>true,
          //کیبورد بعد استفاده بسته میشه
@@ -195,6 +200,18 @@ if($message == '/start' && $type == 'private'){
             ]
         ])
     ]);
+}elseif($message == 'glass button2'){
+    bot('sendMessage', [
+        'chat_id'=> $chat_id,
+        'reply_to_message_id'=> $message_id,
+        'text'=> 'Displaying glass buttons',
+        'reply_markup'=>json_encode([
+            'inline_keyboard'=>[
+                [['text'=>'callback button',
+                'callback_data'=>'1234']]
+            ]
+        ])
+    ])
 }
 
 
