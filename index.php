@@ -109,7 +109,7 @@ if($message == '/start' && $type == 'private'){
     'reply_markup'=>json_encode([
         //Array of Array of
          'keyboard'=>[
-            [['text'=>'first button','request_contact'=>true],['text'=>'second button','request_location'=>true], ['text'=>'third button']]
+            [['text'=>'Location button','request_contact'=>true],['text'=>'getmobile button','request_location'=>true], ['text'=>'third button']]
          ],
          'resize_keyboard'=>true,
          //کیبورد بعد استفاده بسته میشه
