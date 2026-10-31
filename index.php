@@ -121,7 +121,8 @@ if($message == '/start' && $type == 'private'){
     'reply_markup'=>json_encode([
         //Array of Array of
          'keyboard'=>[
-            [['text'=>'Location button','request_location'=>true],['text'=>'getmobile button','request_contact'=>true], ['text'=>'Delete button']]
+            [['text'=>'Location button','request_location'=>true],['text'=>'getmobile button','request_contact'=>true], ['text'=>'Delete button']
+            ,['text'=>'glass button']]
          ],
          'resize_keyboard'=>true,
          //کیبورد بعد استفاده بسته میشه
@@ -165,6 +166,18 @@ if($message == '/start' && $type == 'private'){
         'text'=>'All buttons deleted successfully',
         'reply_markup'=>json_encode([
             'remove_keyboard'=>true
+        ])
+    ]);
+    //inline keyboard markup
+}elseif($message =="glass button"){
+    bot("sendMessage", [
+        'chat_id'=> $chat_id,
+        'reply_to_message_id'=> $message_id,
+        'text'=>'Displaying glass buttons',
+        'reply_markup'=>json_encode([
+            'inline_keyboard'=>[
+                [['text'=>'Hello world']]
+            ]
         ])
     ]);
 }
