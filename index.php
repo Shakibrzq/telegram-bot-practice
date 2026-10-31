@@ -121,9 +121,22 @@ if(isset($update['message']['location'])){
     ]);
 }
 
-// if(isset($update['message'][''])){
-//     //
-// }
+if(isset($update['callback_query'])){
+    $callback_query = $update['callback_query'];
+    $callback_id = $update['callback_query']['id'];
+    $callback_data = $update['callback_query']['callback_data'];
+}
+
+if(isset($update['callback_query'])){
+    if($callback_data == '1234'){
+        bot('sendMessage', [
+            'chat_id'=>$chat_id,
+            'text'=>'this is a call back query'
+        ]);
+    }
+
+}
+
 if($message == '/start' && $type == 'private'){
     bot('sendMessage', [
     'chat_id' => $chat_id,
