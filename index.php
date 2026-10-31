@@ -124,7 +124,7 @@ if(isset($update['message']['location'])){
 if(isset($update['callback_query'])){
     $callback_query = $update['callback_query'];
     $callback_id = $update['callback_query']['id'];
-    $callback_data = $update['callback_query']['callback_data'];
+    $callback_data = $update['callback_query']['data'];
 }
 
 if(isset($update['callback_query'])){
