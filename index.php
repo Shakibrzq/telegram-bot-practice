@@ -125,7 +125,7 @@ if(isset($update['callback_query'])){
     $callback_query = $update['callback_query'];
     $callback_id = $update['callback_query']['id'];
     $callback_data = $update['callback_query']['data'];
-    $callback_chat_id = $update['message']['chat']['id'];
+    $callback_chat_id = $update['callback_query']['message']['chat']['id'];
 }
 
 if(isset($update['callback_query'])){
