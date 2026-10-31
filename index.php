@@ -125,12 +125,13 @@ if(isset($update['callback_query'])){
     $callback_query = $update['callback_query'];
     $callback_id = $update['callback_query']['id'];
     $callback_data = $update['callback_query']['data'];
+    $callback_chat_id = $update['message']['chat']['id'];
 }
 
 if(isset($update['callback_query'])){
     if($callback_data == '1234'){
         bot('sendMessage', [
-            'chat_id'=>$chat_id,
+            'chat_id'=>$callback_chat_id,
             'text'=>'this is a call back query'
         ]);
     }
