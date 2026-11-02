@@ -232,7 +232,7 @@ if($message == '/start' && $type == 'private'){
 }elseif($message == 'test'){
     bot('editMessageText', [
         'chat_id'=> $chat_id,
-        'message_id'=>223,
+        'message_id'=>226,
         'text'=>'this msg is eddited by method'
     ]);
 
