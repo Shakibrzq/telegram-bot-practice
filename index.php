@@ -238,11 +238,12 @@ if($message == '/start' && $type == 'private'){
 
     $bot_msg_id = $bot_msg['message_id'];
 
-    bot('editMessageText', [
+    $edit = bot('editMessageText', [
         'chat_id' => $chat_id,
         'message_id' => $bot_msg_id,
         'text' => 'msg is edited'
     ]);
+    var_dump($edit);
 }
 
 
