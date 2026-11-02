@@ -121,6 +121,7 @@ if(isset($update['message']['location'])){
     ]);
 }
 
+
 if(isset($update['callback_query'])){
     $callback_query = $update['callback_query'];
     $callback_id = $update['callback_query']['id'];
@@ -156,6 +157,8 @@ if($message == '/start' && $type == 'private'){
          //کیبورد بعد استفاده بسته میشه
         //  'one_time_keyboard'=>true
         'input_field_placeholder'=>'Select one of the buttons'
+
+
         
         
 
@@ -226,6 +229,13 @@ if($message == '/start' && $type == 'private'){
             ]
         ])
     ]);
+}elseif($message == 'test'){
+    bot('editMessage', [
+        'chat_id'=> $chat_id,
+        'message_id'=>223,
+        'text'=>'this msg is eddited by method'
+    ]);
+
 }
 
 
