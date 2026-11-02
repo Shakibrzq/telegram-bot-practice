@@ -230,7 +230,7 @@ if($message == '/start' && $type == 'private'){
         ])
     ]);
 }elseif($message == 'test'){
-    bot('editMessage', [
+    bot('editMessageText', [
         'chat_id'=> $chat_id,
         'message_id'=>223,
         'text'=>'this msg is eddited by method'
